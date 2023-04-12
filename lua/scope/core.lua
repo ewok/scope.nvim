@@ -1,4 +1,4 @@
-local utils = require "scope.utils"
+local utils = require("scope.utils")
 
 local M = {}
 
@@ -40,6 +40,14 @@ function M.print_summary()
             local name = vim.api.nvim_buf_get_name(buf)
             print(tab .. " " .. buf .. " " .. name)
         end
+    end
+end
+
+function M.delete_buffer()
+    local buf_num = vim.api.nvim_get_current_buf()
+    if utils.is_valid(buf_num) then
+        local tab = vim.api.nvim_get_current_tabpage()
+        M.cache[tab].remove(M.cache, utils.tablefind(M.cache, buf_num))
     end
 end
 

@@ -1,4 +1,13 @@
 local U = {}
+local core = require("scope.core")
+
+function U.tablefind(tab, el)
+    for index, value in pairs(tab) do
+        if value == el then
+            return index
+        end
+    end
+end
 
 function U.is_minimum_version(major, minor, patch)
     local version = vim.version()
