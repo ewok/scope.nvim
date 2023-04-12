@@ -45,10 +45,8 @@ end
 
 function M.delete_buffer()
     local buf_num = vim.api.nvim_get_current_buf()
-    if utils.is_valid(buf_num) then
-        vim.api.nvim_buf_set_option(buf_num, "buflisted", false)
-        vim.api.nvim_command("bnext")
-    end
+    vim.api.nvim_buf_set_option(buf_num, "buflisted", false)
+    vim.api.nvim_command("bnext!")
 end
 
 return M
