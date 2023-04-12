@@ -44,10 +44,10 @@ function M.print_summary()
 end
 
 function M.delete_buffer()
-    local buf_num = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_set_option(buf_num, "buflisted", false)
     local buffers = utils.get_valid_buffers()
-    if buffers then
+    if #buffers > 1 then
+        local buf_num = vim.api.nvim_get_current_buf()
+        vim.api.nvim_buf_set_option(buf_num, "buflisted", false)
         vim.api.nvim_command("silent! bnext")
     end
 end
