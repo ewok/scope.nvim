@@ -19,8 +19,13 @@ end
 function M.serialize_state()
     local core = require("scope.core")
     local scope_cache = {}
+<<<<<<< HEAD
     for k, v in pairs(core.cache) do
         scope_cache[k] = utils.get_buffer_names(v)
+=======
+    for _, table in pairs(core.cache) do
+        scope_cache[#scope_cache + 1] = utils.get_buffer_names(table)
+>>>>>>> stream/main
     end
     local state = {
         cache = scope_cache,
