@@ -62,10 +62,7 @@ end
 local scope_buffers = function(opts)
     opts = opts or {}
     opts = apply_cwd_only_aliases(opts)
-<<<<<<< HEAD
-=======
     scope_core.revalidate()
->>>>>>> stream/main
     local bufnrs = filter(
         function(b)
             if opts.show_all_buffers == false and not vim.api.nvim_buf_is_loaded(b) then
@@ -143,11 +140,7 @@ local scope_buffers = function(opts)
                     actions.close(prompt_bufnr)
                     local tabi = find_buffer_tabindex(selection.bufnr)
                     if tabi ~= nil then
-<<<<<<< HEAD
-                        vim.cmd("tabnext " .. tabi)
-=======
                         vim.api.nvim_set_current_tabpage(tabi)
->>>>>>> stream/main
                     end
                     vim.cmd("buffer " .. selection.bufnr)
                 end)
